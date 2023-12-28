@@ -1,6 +1,10 @@
 MIT License
 
+<<<<<<<< HEAD:zhejiang-university/system-programming/fall23/rjc_zyc_ghb_db/LICENSE
 Copyright (c) 2023 watermelon
+========
+Copyright (c) 2022 Open Rust Initiative
+>>>>>>>> d870cfa (Init LICENSES and README):LICENSE-MIT
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
