@@ -1,10 +1,5 @@
-# Rust Eduction Workshop Repository
+# Nanjing University
 
-## Universities
-
-### Zhejiang University 
-
-### Nanjing University
 
 ## Contribution
 
@@ -65,4 +60,4 @@ Freighter is licensed under this Licensed:
 
 If you have any questions or suggestions about `rust-edu`, please feel free to contact us.
 
-Email: Quanyi Ma <genedna@gmail.com>, Qilin Wang <wangqilintech@gmail.com>
+Email: 
