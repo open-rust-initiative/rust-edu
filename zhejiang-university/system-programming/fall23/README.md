@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 课程项目
 
 ## 要求
@@ -106,3 +107,6 @@ Raft是分布式系统领域一个重要的共识算法（consensus algorithm）
 - [C++ 实现](https://github.com/logcabin/logcabin)
 - [Go 实现](https://github.com/hashicorp/raft)
 - [6.824](http://nil.csail.mit.edu/6.824/2022/schedule.html)
+=======
+
+>>>>>>> f6df9d7 (Create README.md)
