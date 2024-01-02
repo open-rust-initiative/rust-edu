@@ -1,7 +1,10 @@
 # FileSystem
 
 利用 Rust 实现一个小型的文件系统
+<<<<<<< HEAD
 https://github.com/20001216sl/FileSystem
+=======
+>>>>>>> 89a6c24 (Add sl_FileSystem)
 
 # 设计内容
 
@@ -18,6 +21,10 @@ https://github.com/20001216sl/FileSystem
 在此，选取单用户多级目录进行实现，并视所有文件为流式文件，建立类似于FAT32文件系统中的文件分配表（FAT）进行 文件连接-物理簇 的索引。
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 89a6c24 (Add sl_FileSystem)
 # 设计过程
 
 ## 基本数据结构的构建
@@ -185,6 +192,10 @@ Directroy 'root' Files:
 各组件经测试，在不输入错误的情况下运行良好，功能正常。
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 89a6c24 (Add sl_FileSystem)
 # 使用说明
 
 本程序使用命令行交互界面。目前可以输入以下命令：
