@@ -1,10 +1,14 @@
 # FileSystem
 
+<<<<<<< HEAD
 利用 Rust 实现一个小型的文件系统
 <<<<<<< HEAD
 https://github.com/20001216sl/FileSystem
 =======
 >>>>>>> 89a6c24 (Add sl_FileSystem)
+=======
+利用 Rust 实现一个小型的文件系统https://github.com/20001216sl/FileSystem
+>>>>>>> e396b92 (Update README.md)
 
 # 设计内容
 
