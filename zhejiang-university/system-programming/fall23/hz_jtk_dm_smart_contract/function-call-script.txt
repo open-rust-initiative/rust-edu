@@ -1,0 +1,64 @@
+account-name/role-name的所有可能值:patient、doctor、visitor、pharmacy
+
+创建账户：ok
+near create-account sub-{account-name}.ni1l.testnet --masterAccount ni1l.testnet --initialBalance 10
+
+注册角色：ok
+near call ni1l.testnet register '{"role":"{role-name}"}' --accountId sub-{account-name}.ni1l.testnet
+
+查询角色：ok
+near call ni1l.testnet get_role '{}' --accountId sub-{account-name}.ni1l.testnet
+
+检查角色权限：ok
+near call ni1l.testnet check_role '{"account_id":"sub-{account-name}.ni1l.testnet","role":"{role-name}"}' --accountId sub-{account-name}.ni1l.testnet
+
+添加病历详情：ok
+near call ni1l.testnet add_record '{"patient":"sub-patient.ni1l.testnet","detail":"medical record detail"}' --accountId sub-doctor.ni1l.testnet
+
+授权病历查看权限：ok
+near call ni1l.testnet add_allow_record '{"doctor":"sub-doctor.ni1l.testnet"}' --accountId sub-patient.ni1l.testnet
+
+查询病历：ok
+near call ni1l.testnet get_user_medical_records '{"patient_id":"sub-patient.ni1l.testnet"}' --accountId sub-doctor.ni1l.testnet
+
+患者预约医生挂号：ok
+near call ni1l.testnet make_reservation '{"doctor_id":"sub-doctor.ni1l.testnet"}' --accountId sub-patient.ni1l.testnet
+
+医生状态查询：ok
+near call ni1l.testnet get_doctor_status '{"doctor_id":"sub-doctor.ni1l.testnet"}' --accountId sub-patient.ni1l.testnet
+
+访客信息登记：ok
+near call ni1l.testnet record_visitor '{"patient_id":"sub-patient.ni1l.testnet"}' --accountId sub-visitor.ni1l.testnet
+
+访客信息查询：ok
+near call ni1l.testnet get_visitor_list '{"patient_id":"sub-patient.ni1l.testnet"}' --accountId sub-patient.ni1l.testnet
+
+医生添加药方：ok
+near call ni1l.testnet prescribe_medicine '{"patient_id":"sub-patient.ni1l.testnet","medicine":[{"medicine_info":"m_info","medicine_name":"m_name","price":10}]}' --accountId sub-doctor.ni1l.testnet
+
+查询药方：ok
+near call ni1l.testnet get_user_prescriptions '{"patient_id":"sub-patient.ni1l.testnet"}' --accountId sub-doctor.ni1l.testnet
+
+发放药品：ok
+near call ni1l.testnet confirm_payment_and_dispense_medicine '{"patient_id":"sub-patient.ni1l.testnet","prescription_index":0}' --accountId sub-pharmacy.ni1l.testnet
+
+查询账单：ok
+near call ni1l.testnet get_bill_info '{"patient_id":"sub-patient.ni1l.testnet"}' --accountId sub-patient.ni1l.testnet
+
+支付账单：ok
+near call ni1l.testnet pay_the_bill '{"patient_id":"sub-patient.ni1l.testnet","balance":60}' --accountId sub-patient.ni1l.testnet
+
+查询账单状态：ok
+near call ni1l.testnet check_bill_is_paid '{"patient_id":"sub-patient.ni1l.testnet"}' --accountId sub-patient.ni1l.testnet
+
+添加空床位：ok
+near call ni1l.testnet add_available_beds '{"room_number":10}' --accountId sub-doctor.ni1l.testnet
+
+患者入院信息登记：ok
+near call ni1l.testnet admit_patient '{"patient_id":"sub-patient.ni1l.testnet"}' --accountId sub-doctor.ni1l.testnet
+
+患者出院信息登记：ok
+near call ni1l.testnet discharge_patient '{"patient_id":"sub-patient.ni1l.testnet"}' --accountId sub-doctor.ni1l.testnet
+
+医生添加病床巡查记录：ok
+near call ni1l.testnet perform_rounds '{"room_number":1}' --accountId sub-doctor.ni1l.testnet
