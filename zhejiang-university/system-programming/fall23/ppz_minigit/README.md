@@ -2,6 +2,8 @@
 
 仿照git的原理用RUST语言编写的代码管理及版本控制工具
 
+由ppz完成
+
 项目github链接：https://github.com/ppz0011/minigit
 
 ## 实现功能
