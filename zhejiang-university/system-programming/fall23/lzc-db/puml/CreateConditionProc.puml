@@ -1,0 +1,24 @@
+@startuml
+start
+
+if (expr is BinaryOp) then (yes)
+  :Extract BinaryOpCus;
+  if (expr_op is And or Or) then (yes)
+    :Create Logical Condition;
+    :Recursively process left and right expressions;
+  else (no)
+    :Create Comparison Condition;
+    :Extract left, op, and right parts;
+  endif
+elseif (expr is IsNull) then (yes)
+  :Create IsNull Condition;
+  :Extract x;
+else if (expr is Like) then (yes)
+  :Create Like Condition;
+  :Extract expr and pattern;
+else (no)
+  :Raise Panic (Invalid operation);
+endif
+
+stop
+@enduml

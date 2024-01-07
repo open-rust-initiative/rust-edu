@@ -1,0 +1,29 @@
+@startuml
+start
+:SQL Command;
+:Parse SQL by sqlparser;
+fork
+:Parse Table Name;
+fork again
+:Parse Columns Attr;
+fork
+:Foreign Key;
+fork again
+:Is Nullable;
+fork again
+:Default Value;
+endfork
+fork again
+:Parse Table Constraints;
+:Parse Table Foreign Keys;
+fork
+:Foreign Table;
+fork again
+:Current Column;
+fork again
+:Foreign Column;
+endfork
+endfork
+:Create Create Query;
+stop
+@enduml
