@@ -1,0 +1,11 @@
+@startmindmap
+* CreateQuery
+** Table Information
+*** Table Name
+** Column Information
+*** Column Attr List
+** Foreign Keys
+*** Foreign Table
+*** ColumnA(Curr Table)
+*** ColumnB(Foreign Table)
+@endmindmap

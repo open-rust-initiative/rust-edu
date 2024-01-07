@@ -1,0 +1,23 @@
+CREATE TABLE users (id INT PRIMARY KEY, username VARCHAR(255) NOT NULL, password VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL );
+CREATE TABLE category (id INT PRIMARY KEY, label VARCHAR(255) NOT NULL);
+CREATE TABLE articles (id INT PRIMARY KEY, title VARCHAR(255) NOT NULL, user_id INT, category_id INT, FOREIGN KEY (user_id) REFERENCES users(id), FOREIGN KEY (category_id) REFERENCES category(id) );
+INSERT INTO users (id, username, password, email) VALUES(1, 'user1', 'password1', 'user1@qq.com');
+INSERT INTO users (id, username, password, email) VALUES(2, 'user2', 'password2', 'user2@163.com');
+INSERT INTO users (id, username, password, email) VALUES(3, 'user3', 'password3', 'user3@zju.edu.cn');
+INSERT INTO users (id, username, password, email) VALUES(4, 'Cat', 'Cat', 'Cat@gmail.com');
+INSERT INTO users (id, username, password, email) VALUES(5, 'Dog', 'Dog', 'Dog@gmail.com');
+INSERT INTO users (id, username, password, email) VALUES(6, 'Bird', 'Bird', 'Bird@gmail.com');
+INSERT INTO category (id, label) VALUES(101, 'Technology');
+INSERT INTO category (id, label) VALUES(102, 'Science');
+INSERT INTO category (id, label) VALUES(103, 'Health');
+INSERT INTO articles (id, title, user_id, category_id) VALUES(201, 'Article 1', 1, 101);
+INSERT INTO articles (id, title, user_id, category_id) VALUES(202, 'Article 2', 2, 102);
+INSERT INTO articles (id, title, user_id, category_id) VALUES(203, 'Article 3', 3, 103);
+INSERT INTO articles (id, title, user_id, category_id) VALUES (204, 'The Art of Coding', 1, 101);
+INSERT INTO articles (id, title, user_id, category_id) VALUES (205, 'Understanding Quantum Computing', 2, 102);
+INSERT INTO articles (id, title, user_id, category_id) VALUES (206, 'Mindfulness Meditation Techniques', 3, 103);
+INSERT INTO articles (id, title, user_id, category_id) VALUES (207, 'Building Scalable Web Applications', 1, 101);
+INSERT INTO articles (id, title, user_id, category_id) VALUES (208, 'Exploring the Solar System', 2, 102);
+INSERT INTO articles (id, title, user_id, category_id) VALUES (209, 'Balancing Work and Life', 3, 103);
+
+UPDATE users SET password = 'new_password', email = "new_email@example.com" WHERE id = 1;
