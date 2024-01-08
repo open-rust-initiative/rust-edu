@@ -1,0 +1,61 @@
+//
+// Created by intellij-pest on 2023-12-08
+// ONScripter-grammar
+// Author: l01
+//
+
+script = ${ SOI ~ stmt ~ (NEWLINE* ~ stmt)* ~ NEWLINE* ~ EOI }
+
+stmt = _{ stmt_if | stmt_while | stmt_for | stmt_label | stmt_wait | stmt_echo | stmt_call | comment }
+
+stmt_label = @{ label }
+
+label = @{ "*" ~ identifier | "~" }
+
+stmt_if = !{ "if" ~ expr_int ~ stmt_call ~ (":" ~ stmt_call)* }
+
+stmt_while = !{ "while" ~ expr_int ~ stmt_call ~ (":" ~ stmt_call)* }
+
+stmt_for = !{ "for" ~ identifier ~ "=" ~ expr_int ~ "to" ~ expr_int ~ stmt_call ~ (":" ~ stmt_call)* }
+
+stmt_wait = @{ "!" ~ ASCII_ALPHANUMERIC+ }
+
+stmt_echo = @{ !ASCII ~ (!NEWLINE ~ ANY)+ }
+
+stmt_call = !{ identifier ~ params? }
+
+params = { value ~ ("," ~ NEWLINE? ~ value)* }
+
+value = _{ color | label | keyword | expr_str | expr_int }
+
+const_int = @{ "-"? ~ ASCII_DIGIT+ }
+
+const_string = @{ "\"" ~ str_inner ~ "\"" }
+
+str_inner = { (!"\"" ~ ANY)* }
+
+color = @{ "#" ~ ASCII_ALPHANUMERIC{6} }
+
+op = { "+" | "-" | "*" | "&&" | ">=" | "<=" | ">" | "<" | "<>" | "==" }
+
+expr_str = { const_string | var_str }
+
+expr_int = { inner_expr_int ~ (op ~ inner_expr_int)* }
+
+inner_expr_int = _{ const_int | var_int | "(" ~ inner_expr_int ~ ")" }
+
+var_int = @{ "%" ~ (const_int | identifier) }
+
+var_str = @{ "$" ~ (const_int | identifier) }
+
+identifier = @{ identifier_start ~ identifier_continue* ~ !identifier_continue }
+
+identifier_start = { ASCII_ALPHA | "_" }
+
+identifier_continue = { ASCII_ALPHANUMERIC | "_" }
+
+keyword = @{ identifier }
+
+WHITESPACE = _{ " " | "\t" }
+
+comment = _{ (";" ~ (!NEWLINE ~ ANY)*)* ~ NEWLINE }
