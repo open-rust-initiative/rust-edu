@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://5byyolsusahy"]
+
+[node name="OnsMain" type="OnsMain"]
+
+[node name="bg" type="Sprite2D" parent="."]
+
+[node name="window" type="Node2D" parent="."]
+
+[node name="bg" type="Sprite2D" parent="window"]
+
+[node name="text" type="Label" parent="window"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+autowrap_mode = 1
+
+[node name="PopupMenu" type="PopupMenu" parent="."]
+position = Vector2i(320, 215)
+visible = true
+
+[node name="OptionButton" type="OptionButton" parent="PopupMenu"]
+offset_right = 45.0
+offset_bottom = 20.0
+
+[node name="OptionButton2" type="OptionButton" parent="PopupMenu"]
+offset_right = 45.0
+offset_bottom = 20.0
+
+[node name="OptionButton3" type="OptionButton" parent="PopupMenu"]
+offset_right = 45.0
+offset_bottom = 20.0
+
+[node name="OptionButton4" type="OptionButton" parent="PopupMenu"]
+offset_right = 45.0
+offset_bottom = 20.0

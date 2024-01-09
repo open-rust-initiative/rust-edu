@@ -1,0 +1,20 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: <https://go.microsoft.com/fwlink/?linkid=830387>
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(Windows) 启动",
+            "type": "cppvsdbg",
+            "request": "launch",
+							// 需要配置你执行文件的路径
+            "program": "${workspaceRoot}/target/debug/mygit.exe",
+            "args": ["add", "."],
+            "stopAtEntry": false,
+            "cwd": "${workspaceRoot}/mygit-test",
+            "environment": [],
+            "console": "integratedTerminal",
+        }
+    ]
+}

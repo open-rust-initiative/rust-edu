@@ -1,0 +1,18 @@
+[package]
+name = "SimpleDB"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+sqlparser = "*"
+prettytable-rs = "*"
+serde = { version = "*", features = ["derive"] }
+serde_json = "*"
+sha2 = "*"
+hex = "*"
+regex = "*"
+ansi_term = "*"
+
+[package.metadata.build-override]
+build = "build.rs"

@@ -1,0 +1,45 @@
+@startuml
+start
+
+:Initialize left_value, right_value;
+:Extract left column value from row;
+:Extract right value from condition;
+
+if (op is Lt) then (yes)
+  if (left type is Int) then (yes)
+    :Compare as integers;
+    :Return result;
+  else if (left type is Float) then (yes)
+    :Compare as floats;
+    :Return result;
+  else if (left type is Str) then (yes)
+    :Lexicographical string comparison;
+    :Return result;
+  else if (left type is Bool) then (yes)
+    :Compare as booleans;
+    :Return result;
+  else
+    :Handle None type;
+    :Return result;
+  endif
+else if (op is Gt) then (yes)
+  :Similar comparison as Lt;
+else if (op is Eq) then (yes)
+  :Similar comparison as Lt;
+else if (op is IsNull) then (yes)
+  :Check if left_value is empty;
+  :Return result;
+else if (op is Like) then (yes)
+  :Wildcard string matching;
+  :Return result;
+else if (op is And or Or) then (yes)
+  :Evaluate left and right conditions recursively;
+  :Perform logical AND or OR based on op;
+  :Return result;
+else
+  :Handle unknown operation;
+  :Return false;
+endif
+
+stop
+@enduml

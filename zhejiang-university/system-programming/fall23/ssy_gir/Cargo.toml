@@ -1,0 +1,6 @@
+[package]
+name = "gir"
+version = "0.1.0"
+authors = ["ssy <ssy_ing@163.com>"]
+
+[dependencies]

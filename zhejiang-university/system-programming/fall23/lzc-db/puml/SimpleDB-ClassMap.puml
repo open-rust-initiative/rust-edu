@@ -1,0 +1,113 @@
+@startuml
+
+class DbSystem {
+  + new()
+  + login(username: String, password: String) -> bool
+}
+
+class Database {
+  + db_name: String
+  + tables: Vec<Table>
+  + new()
+  + create_table(...) -> Table
+  + save(...) -> Result
+  + drop(...) -> Result
+  + load(...) -> Database
+}
+
+class Table {
+    + name: String
+    + columns: Vec<ColumnType>
+    + rows: HashMap<String, ColumnData>
+    + select_data(...) -> Result
+    + insert_data(...) -> Result
+    + delete_data(...) -> Result
+    + update_data(...) -> Result
+    + table_info(...) -> Result
+}
+
+class CommandProcessor {
+  + process_command(query: String, db: &mut Database)
+  + process_sys_command(query: String, db: &mut Database)
+}
+
+class CommandType {
+    - TableCommand
+    - SystemCommand
+    + new(query: String) -> CommandType
+}
+
+class SystemCommand {
+    - CreateDatabase
+    - UseDatabase
+    - DropDatabase
+    - ShowDatabases
+    - ChangePassword
+    - SysInfo
+    + new(command: String) -> SysCommand
+}
+
+class TableCommand {
+    - Create
+    - Delete
+    - Select
+    - Update
+    - ShowTable
+    - TableInfo
+    + new(command: String) -> TableCommand
+}
+
+class SQLParser{
+    + parse_sql(sql: &str) -> Query
+    + format_stat(state: Query) -> Result
+}
+
+class CreateParser{
+    + new(...) -> CreateQuery
+}
+
+class SelectParser{
+    + new(...) -> SelectQuery
+}
+
+class InsertParser{
+    + new(...) -> InsertQuery
+}
+
+class UpdateParser{
+    + new(...) -> UpdateQuery
+}
+
+class DeleteParser{
+    + new(...) -> DeleteQuery
+}
+
+'class CreateQuery {
+'  + parse_sql(sql: &str) -> Query
+'  + format_stat(state: Query) -> Result<CreateQuery, String>
+'}
+'
+'class InsertQuery {
+'  + parse_sql(sql: &str) -> Query
+'  + format_stat(state: Query) -> Result<InsertQuery, String>
+'}
+'
+'class SelectQuery {
+'  + parse_sql(sql: &str) -> Query
+'  + format_stat(state: Query) -> Result<SelectQuery, String>
+'}
+
+DbSystem --> CommandProcessor
+CommandProcessor --> CommandType
+CommandType --> SystemCommand
+CommandType --> TableCommand
+DbSystem --> Database
+Database --> Table
+DbSystem --> SQLParser
+SQLParser --> CreateParser
+SQLParser --> SelectParser
+SQLParser --> UpdateParser
+SQLParser --> DeleteParser
+SQLParser --> InsertParser
+
+@enduml
