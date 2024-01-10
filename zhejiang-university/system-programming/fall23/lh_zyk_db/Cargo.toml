@@ -1,0 +1,18 @@
+[package]
+name = "rust_db"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+miette = {version="5.10.0", features=["fancy"]}
+serde = {version="1.0.193", features=["derive"]}
+thiserror = "1.0.50"
+rustyline = "12.0.0"
+nom_locate = "4.2.0"
+nom-supreme = "0.8.0"
+nom = "7.1.3"
+tabled = "0.14"
+csv = "1.1.6"
+chrono = "0.4"
