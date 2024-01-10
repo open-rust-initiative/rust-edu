@@ -1,0 +1,65 @@
+@startuml
+start
+:SQL Command;
+:Parse SQL by sqlparser;
+fork
+:Parse Table Name;
+fork again
+:Parse Projections;
+fork
+:*;
+fork again
+:ColumnA;
+fork again
+:ColumnB;
+endfork
+:Deduplicated Projections;
+
+fork again
+:Parse Joins;
+fork
+:InnerJoin;
+fork again
+:LeftJoin;
+fork again
+:RightJoin;
+fork again
+:FullOuter;
+endfork
+:Join List;
+:Create Virtual Table;
+
+
+fork again
+:Parse Conditions;
+fork
+:Logical Conditions;
+fork
+:AND;
+fork again
+:OR;
+endfork
+fork again
+:Comparison Conditions;
+fork
+:Eq;
+fork again
+:Gt;
+fork again
+:Lt;
+endfork
+fork again
+:Other Conditions;
+fork
+:Is NULL;
+fork again
+:Is True;
+fork again
+:Like;
+endfork
+endfork
+:Conditions List;
+endfork
+:Create Select Query;
+stop
+@enduml

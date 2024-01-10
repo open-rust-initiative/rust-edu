@@ -1,0 +1,28 @@
+@startmindmap
+* SelectQuery
+** From
+*** Table Name
+** Projections
+*** Column Name List
+** Conditions
+*** Comparison
+**** left
+**** op
+***** Eq
+***** Gt
+***** Lt
+**** right
+*** Logical
+**** left
+**** op
+***** and
+***** or
+**** right
+*** Others
+**** left
+**** op
+***** Is NULL
+***** Is True
+***** Like
+**** right
+@endmindmap
